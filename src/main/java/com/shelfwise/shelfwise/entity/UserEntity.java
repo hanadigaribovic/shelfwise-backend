@@ -11,14 +11,12 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserEntity {
 
     @Id
     @GeneratedValue
     private UUID uid;
-
-    @Column(nullable = false)
-    private String name;
 
     @Column(unique = true, nullable = false)
     private String email;
