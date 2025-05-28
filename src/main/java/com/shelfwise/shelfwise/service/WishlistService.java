@@ -4,9 +4,9 @@ import com.shelfwise.shelfwise.dto.WishlistDto;
 import com.shelfwise.shelfwise.entity.BookEntity;
 import com.shelfwise.shelfwise.entity.UserEntity;
 import com.shelfwise.shelfwise.entity.WishlistEntity;
-import com.shelfwise.shelfwise.repositoy.BookRepository;
-import com.shelfwise.shelfwise.repositoy.UserRepository;
-import com.shelfwise.shelfwise.repositoy.WishlistRepository;
+import com.shelfwise.shelfwise.repository.BookRepository;
+import com.shelfwise.shelfwise.repository.UserRepository;
+import com.shelfwise.shelfwise.repository.WishlistRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

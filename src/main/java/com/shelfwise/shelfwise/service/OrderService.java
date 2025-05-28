@@ -4,9 +4,9 @@ import com.shelfwise.shelfwise.dto.OrderDto;
 import com.shelfwise.shelfwise.entity.CartEntity;
 import com.shelfwise.shelfwise.entity.OrderEntity;
 import com.shelfwise.shelfwise.entity.UserEntity;
-import com.shelfwise.shelfwise.repositoy.CartRepository;
-import com.shelfwise.shelfwise.repositoy.OrderRepository;
-import com.shelfwise.shelfwise.repositoy.UserRepository;
+import com.shelfwise.shelfwise.repository.CartRepository;
+import com.shelfwise.shelfwise.repository.OrderRepository;
+import com.shelfwise.shelfwise.repository.UserRepository;
 import com.shelfwise.shelfwise.type.OrderStatus;
 import org.springframework.stereotype.Service;
 

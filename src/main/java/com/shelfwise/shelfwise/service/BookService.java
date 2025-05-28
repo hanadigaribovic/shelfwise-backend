@@ -3,7 +3,7 @@ package com.shelfwise.shelfwise.service;
 import com.shelfwise.shelfwise.dto.BookDto;
 import com.shelfwise.shelfwise.dto.BookSimplifyDto;
 import com.shelfwise.shelfwise.entity.BookEntity;
-import com.shelfwise.shelfwise.repositoy.BookRepository;
+import com.shelfwise.shelfwise.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

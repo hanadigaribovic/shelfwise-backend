@@ -1,4 +1,4 @@
-package com.shelfwise.shelfwise.repositoy;
+package com.shelfwise.shelfwise.repository;
 
 import com.shelfwise.shelfwise.entity.BookEntity;
 import com.shelfwise.shelfwise.entity.CartEntity;

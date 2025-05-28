@@ -5,9 +5,9 @@ import com.shelfwise.shelfwise.dto.CartDto;
 import com.shelfwise.shelfwise.entity.BookEntity;
 import com.shelfwise.shelfwise.entity.CartEntity;
 import com.shelfwise.shelfwise.entity.UserEntity;
-import com.shelfwise.shelfwise.repositoy.BookRepository;
-import com.shelfwise.shelfwise.repositoy.CartRepository;
-import com.shelfwise.shelfwise.repositoy.UserRepository;
+import com.shelfwise.shelfwise.repository.BookRepository;
+import com.shelfwise.shelfwise.repository.CartRepository;
+import com.shelfwise.shelfwise.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
