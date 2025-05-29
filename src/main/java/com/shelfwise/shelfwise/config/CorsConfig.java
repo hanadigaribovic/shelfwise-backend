@@ -13,11 +13,11 @@ public class CorsConfig {
 
     @Bean
     public CorsFilter corsFilter() {
-        System.out.println("✅ CORS filter registered"); // Dodaj ovo
+        System.out.println("✅ CORS filter registered");
 
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of("http://localhost:4200")); // Angular dev server
+        config.setAllowedOrigins(List.of("http://localhost:4200"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
