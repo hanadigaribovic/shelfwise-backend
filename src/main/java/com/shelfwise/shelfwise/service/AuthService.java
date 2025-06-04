@@ -1,5 +1,7 @@
 package com.shelfwise.shelfwise.service;
 
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 import com.shelfwise.shelfwise.dto.auth.AuthResponse;
 import com.shelfwise.shelfwise.dto.auth.LoginRequest;
 import com.shelfwise.shelfwise.dto.auth.RegisterRequest;
@@ -22,7 +24,7 @@ public class AuthService {
     public AuthResponse register(RegisterRequest request) {
         // Provjera da li email postoji
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
-            throw new IllegalArgumentException("Email already in use");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email already in use");
         }
 
         // Kreiranje korisnika

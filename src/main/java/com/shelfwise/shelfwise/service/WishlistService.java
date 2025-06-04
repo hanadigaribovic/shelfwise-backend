@@ -38,11 +38,17 @@ public class WishlistService {
                 userId,
                 w.getBook().getBid(),
                 w.getBook().getTitle(),
-                w.getBook().getAuthor()
+                w.getBook().getAuthor(),
+                w.getBook().getPrice()
         )).toList();
     }
 
     public void removeFromWishlist(UUID wishlistId) {
         wishlistRepository.deleteById(wishlistId);
     }
+
+    public void clearWishlist(UUID userId) {
+        wishlistRepository.deleteAllByUser_Uid(userId);
+    }
+
 }

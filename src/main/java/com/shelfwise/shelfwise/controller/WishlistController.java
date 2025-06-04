@@ -31,4 +31,9 @@ public class WishlistController {
     public void deleteWishlistItem(@PathVariable UUID wishlistId) {
         wishlistService.removeFromWishlist(wishlistId);
     }
+
+    @DeleteMapping("/clear/{userId}")
+    public void clearWishlist(@PathVariable UUID userId) {
+        wishlistService.clearWishlist(userId);
+    }
 }

@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface WishlistRepository extends JpaRepository<WishlistEntity, UUID> {
     List<WishlistEntity> findByUser_Uid(UUID userId);
     void deleteById(UUID id);
+    void deleteAllByUser_Uid(UUID userId);
 }

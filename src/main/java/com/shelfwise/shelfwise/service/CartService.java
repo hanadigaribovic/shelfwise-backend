@@ -33,6 +33,7 @@ public class CartService {
             BookEntity book = c.getBook();
             return new CartDto(
                     c.getId(),
+                    c.getUser().getUid(),
                     book.getBid(),
                     book.getTitle(),
                     book.getAuthor(),
