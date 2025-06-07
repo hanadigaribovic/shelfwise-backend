@@ -38,7 +38,8 @@ public class WishlistService {
                 userId,
                 w.getBook().getBid(),
                 w.getBook().getTitle(),
-                w.getBook().getAuthor()
+                w.getBook().getAuthor(),
+                w.getBook().getPrice()
         )).toList();
     }
 
