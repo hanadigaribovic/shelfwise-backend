@@ -12,4 +12,5 @@ public class WishlistDto {
     private UUID bookId;
     private String title;
     private String author;
+    private double price;
 }
