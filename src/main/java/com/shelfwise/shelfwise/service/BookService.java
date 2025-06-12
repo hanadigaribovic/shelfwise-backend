@@ -4,20 +4,17 @@ import com.shelfwise.shelfwise.dto.BookDto;
 import com.shelfwise.shelfwise.dto.BookSimplifyDto;
 import com.shelfwise.shelfwise.entity.BookEntity;
 import com.shelfwise.shelfwise.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
 
     private final BookRepository bookRepository;
-
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
-
 
     public List<BookSimplifyDto> getAllBooks() {
         List<BookSimplifyDto> books = bookRepository.findAll().stream().map(b -> {

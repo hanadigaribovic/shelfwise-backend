@@ -2,6 +2,8 @@ package com.shelfwise.shelfwise.controller;
 
 import com.shelfwise.shelfwise.dto.WishlistDto;
 import com.shelfwise.shelfwise.service.WishlistService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,13 +11,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/wishlist")
+@RequiredArgsConstructor
 public class WishlistController {
 
     private final WishlistService wishlistService;
-
-    public WishlistController(WishlistService wishlistService) {
-        this.wishlistService = wishlistService;
-    }
 
     @PostMapping
     public void addToWishlist(@RequestBody WishlistDto dto) {

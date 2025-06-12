@@ -8,23 +8,19 @@ import com.shelfwise.shelfwise.entity.UserEntity;
 import com.shelfwise.shelfwise.repository.BookRepository;
 import com.shelfwise.shelfwise.repository.CartRepository;
 import com.shelfwise.shelfwise.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class CartService {
 
     private final CartRepository cartRepository;
     private final UserRepository userRepository;
     private final BookRepository bookRepository;
-
-    public CartService(BookRepository bookRepository, UserRepository userRepository, CartRepository cartRepository) {
-        this.cartRepository = cartRepository;
-        this.userRepository = userRepository;
-        this.bookRepository = bookRepository;
-    }
 
     public List<CartDto> getCartByUserId(UUID userId) {
         List<CartEntity> cartItems = cartRepository.findByUser_Uid(userId);
@@ -49,7 +45,6 @@ public class CartService {
         BookEntity book = bookRepository.findById(dto.getBookId())
                 .orElseThrow(() -> new RuntimeException("Book not found"));
 
-        // Provjera da li već postoji ta knjiga u korpi korisnika
         CartEntity existing = cartRepository.findByUserAndBook(user, book);
         if (existing != null) {
             existing.setQuantity(existing.getQuantity() + dto.getQuantity());
@@ -65,6 +60,16 @@ public class CartService {
 
     public void removeFromCart(UUID cartId) {
         cartRepository.deleteById(cartId);
+    }
+
+    public void updateQuantity(UUID cartId, int delta) {
+        System.out.println("USO SAM U UPDATE DUBOKO");
+        CartEntity entity = cartRepository.findById(cartId)
+                .orElseThrow(() -> new RuntimeException("Item not found"));
+
+        int newQuantity = Math.max(1, entity.getQuantity() + delta);
+        entity.setQuantity(newQuantity);
+        cartRepository.save(entity);
     }
 
 }

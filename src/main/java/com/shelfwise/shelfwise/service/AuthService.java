@@ -20,12 +20,10 @@ public class AuthService {
     private final JwtService jwtService;
 
     public AuthResponse register(RegisterRequest request) {
-        // Provjera da li email postoji
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new IllegalArgumentException("Email already in use");
         }
 
-        // Kreiranje korisnika
         UserEntity user = UserEntity.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
@@ -33,7 +31,6 @@ public class AuthService {
 
         userRepository.save(user);
 
-        // Generisanje tokena
         String token = jwtService.generateToken(user);
 
         return AuthResponse.builder()
