@@ -7,23 +7,19 @@ import com.shelfwise.shelfwise.entity.WishlistEntity;
 import com.shelfwise.shelfwise.repository.BookRepository;
 import com.shelfwise.shelfwise.repository.UserRepository;
 import com.shelfwise.shelfwise.repository.WishlistRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class WishlistService {
 
     private final WishlistRepository wishlistRepository;
     private final UserRepository userRepository;
     private final BookRepository bookRepository;
-
-    public WishlistService(WishlistRepository wishlistRepository, UserRepository userRepository, BookRepository bookRepository) {
-        this.wishlistRepository = wishlistRepository;
-        this.userRepository = userRepository;
-        this.bookRepository = bookRepository;
-    }
 
     public void addToWishlist(UUID userId, UUID bookId) {
         UserEntity user = userRepository.findById(userId).orElseThrow();

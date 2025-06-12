@@ -3,6 +3,7 @@ package com.shelfwise.shelfwise.controller;
 import com.shelfwise.shelfwise.dto.BookDto;
 import com.shelfwise.shelfwise.dto.BookSimplifyDto;
 import com.shelfwise.shelfwise.service.BookService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,13 +12,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/books")
+@RequiredArgsConstructor
 public class BookController {
 
     private final BookService bookService;
-
-    public BookController(BookService bookService){
-        this.bookService = bookService;
-    }
 
     @GetMapping
     public List<BookSimplifyDto> getBooks(){
